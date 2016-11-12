@@ -1,3 +1,8 @@
 hr_homepage:
-    path: /hello/{name}
-    defaults: { _controller: HrBundle:Hello:index }
+    path: /hello/{name}/{sexe}
+    defaults: { _controller: HrBundle:Hello:index, sexe:f }
+    requirements:
+     sexe: h|f
+hr_hellopage:
+    path: /helloo/{name}
+    defaults: { _controller: HrBundle:Hello:hello }
