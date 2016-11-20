@@ -6,3 +6,21 @@ hr_homepage:
 hr_hellopage:
     path: /helloo/{name}
     defaults: { _controller: HrBundle:Hello:hello }
+book_hellopage:
+    path: /book/create
+    defaults: { _controller: HrBundle:Default:create }
+book_read:
+    path: /book/show/{id}
+    defaults: { _controller: HrBundle:Default:show }
+book_update:
+    path: /book/update/{id}
+    defaults: { _controller: HrBundle:Default:update }
+book_delete:
+    path: /book/delete/{id}
+    defaults: { _controller: HrBundle:Default:delete }
+user_create:
+    path: /user/create/
+    defaults: { _controller: HrBundle:Default:createUser }
+user_loan:
+    path: /user/load/{userId}/{bookId}
+    defaults: { _controller: HrBundle:Default:load }

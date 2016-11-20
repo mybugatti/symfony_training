@@ -58,6 +58,11 @@ class Book
      */
     protected $updated_at;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="users")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
 
     /**
      * Get id
@@ -228,5 +233,28 @@ class Book
     public function getUpdatedAt()
     {
         return $this->updated_at;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \HrBundle\Entity\User $user
+     * @return Book
+     */
+    public function setUser(\HrBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \HrBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }
