@@ -2,6 +2,8 @@
 
 namespace HrBundle\Controller;
 
+use HrBundle\Entity\Author;
+use HrBundle\Entity\Cover;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use HrBundle\Entity\Book;
@@ -91,6 +93,37 @@ class DefaultController extends Controller
         $em->flush();
 
         return new Response('Identifiant du lecteur ajouté : ' . $user->getId());
+    }
+
+    public function createAuthorAction()
+    {
+        $author = new Author();
+        $author->setFirstName("Hr");
+        $author->setLastName("Mo");
+        $author->setBirthDate(new \DateTime("now"));
+        $author->setCreatedAt(new \Datetime());
+        $author->setUpdatedAt(new \Datetime());
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($author);
+        $em->flush();
+
+        return new Response('Author ajouté : ' . $author->getId());
+    }
+
+    public function createCoverAction()
+    {
+        $cover = new Cover();
+        $cover->setTitle("Agneau Doux");
+        $cover->setDescription("Il était une fois , dans un village vivait un homme ... ");
+        $cover->setTitle("YTACHI MOMA");
+        $cover->setFilePath("MQMQM");
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($cover);
+        $em->flush();
+
+        return new Response('Cover ajouté : ' . $cover->getId());
     }
 
 

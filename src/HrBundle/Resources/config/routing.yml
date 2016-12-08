@@ -24,3 +24,9 @@ user_create:
 user_loan:
     path: /user/load/{userId}/{bookId}
     defaults: { _controller: HrBundle:Default:load }
+author_create:
+    path: /author/create
+    defaults: { _controller: HrBundle:Default:createAuthor }
+cover_create:
+    path: /cover/create
+    defaults: { _controller: HrBundle:Default:createCover }

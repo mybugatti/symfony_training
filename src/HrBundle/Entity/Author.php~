@@ -1,0 +1,64 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: heredia
+ * Date: 08/12/16
+ * Time: 14:12
+ */
+
+namespace HrBundle\Entity;
+use Doctrine\ORM\Mapping as ORM;
+
+
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="author")
+ */
+class Author
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+
+    /**
+     * @ORM\Column(type="string", length=13)
+     */
+    protected $last_name;
+
+    /**
+     * @ORM\Column(type="string", length=13)
+     */
+    protected $first_name;
+
+
+    /**
+     * @ORM\Column(type="datetime", length=50)
+     */
+    protected $birth_date;
+
+    /**
+     * @ORM\Column(type="datetime", length=50)
+     */
+    protected $created_at;
+
+    /**
+     * @ORM\Column(type="datetime", length=50)
+     */
+    protected $updated_at;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Book", inversedBy="book")
+     * @ORM\JoinColumn(name="book_id", referencedColumnName="id")
+     */
+    protected $book;
+
+    /**
+     * @ORM\OneToOne(targetEntity="Cover", inversedBy="cover", cascade={"persist"})
+     */
+    protected $cover;
+
+}
