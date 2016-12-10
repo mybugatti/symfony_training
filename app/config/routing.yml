@@ -1,3 +1,19 @@
+hr_author:
+    resource: "@HrBundle/Controller/AuthorController.php"
+    type:     annotation
+
+hr_cover:
+    resource: "@HrBundle/Controller/CoverController.php"
+    type:     annotation
+
+hr_book:
+    resource: "@HrBundle/Controller/BookController.php"
+    type:     annotation
+
+hr_user:
+    resource: "@HrBundle/Controller/UserController.php"
+    type:     annotation
+
 hr:
     resource: "@HrBundle/Resources/config/routing.yml"
     prefix:   /

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cover list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>File_path</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for cover in covers %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': cover.id }) }}">{{ cover.id }}</a></td>
+                <td>{{ cover.title }}</td>
+                <td>{{ cover.description }}</td>
+                <td>{{ cover.filepath }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_show', { 'id': cover.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_edit', { 'id': cover.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

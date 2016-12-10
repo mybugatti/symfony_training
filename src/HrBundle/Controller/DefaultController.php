@@ -77,16 +77,27 @@ class DefaultController extends Controller
 
     public function createUserAction()
     {
+
         $user = new User();
-        $user->setEmail('t@g.com');
+        $user->setEmail('g.com');
         $user->setPassword('Villavortex');
-        $user->setLastname('NW');
+        $user->setLastname('MO');
         $user->setFirtname('11');
         $user->setAddress('45OAYE');
         $user->setZipCode('512');
         $user->setBirthDate(new \DateTime("now"));
         $user->setCreatedAt(new \Datetime());
         $user->setUpdatedAt(new \Datetime());
+
+        $validator = $this->get('validator');
+        $errors = $validator->validate($user);
+
+        if (count($errors) > 0) {
+            return $this->render('HrBundle:User:validate.html.twig',
+                array(
+                    'errors' => $errors,
+                ));
+        }
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($user);

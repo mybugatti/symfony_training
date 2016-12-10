@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Book list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Isbn</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Publication_year</th>
+                <th>Issue_date</th>
+                <th>Created_at</th>
+                <th>Updated_at</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': book.id }) }}">{{ book.id }}</a></td>
+                <td>{{ book.isbn }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.summary }}</td>
+                <td>{% if book.publicationyear %}{{ book.publicationyear|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if book.issuedate %}{{ book.issuedate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if book.createdat %}{{ book.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{% if book.updatedat %}{{ book.updatedat|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_show', { 'id': book.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_edit', { 'id': book.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+{% endblock %}

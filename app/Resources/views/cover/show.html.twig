@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cover</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cover.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ cover.title }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ cover.description }}</td>
+            </tr>
+            <tr>
+                <th>File_path</th>
+                <td>{{ cover.filepath }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('user_edit', { 'id': cover.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

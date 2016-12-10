@@ -9,6 +9,7 @@
 namespace HrBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * HrBundle\Entity\User
@@ -26,17 +27,21 @@ class User
     protected $id;
 
     /**
+     * @Assert\Email(message = "The email '{{ value }}' is not a valid email.", checkMX = true )
      * @ORM\Column(type="string", length=13)
      */
     protected $email;
 
     /**
+     *
      * @ORM\Column(type="string", length=50)
      */
     protected $password;
 
     /**
      * @ORM\Column(type="string")
+     * @Assert\Length(min="6")
+     * @Assert\Type(type="string", message="Le prénom ne doit contenir que des caractères.")
      */
     protected $lastname;
 
@@ -56,6 +61,7 @@ class User
     protected $zip_code;
 
     /**
+     * @Assert\Date()
      * @ORM\Column(type="date", length=50)
      */
     protected $birthDate;
