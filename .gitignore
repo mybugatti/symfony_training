@@ -1,3 +1,7 @@
+# JetBrains IDE
+/.idea
+
+# Symfony
 /web/bundles/
 /app/bootstrap.php.cache
 /app/cache/*
@@ -10,4 +14,3 @@
 /vendor/
 /bin/
 /composer.phar
-.idea/
