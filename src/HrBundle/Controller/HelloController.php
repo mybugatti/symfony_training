@@ -12,10 +12,10 @@ class HelloController extends Controller
 
         if ($sexe == "h") {
             $sexe = "masculin";
-            $qualification = "Monsieur";
+            $qualification = "Mr";
         } else {
             $sexe = "feminin";
-            $qualification = "Madame";
+            $qualification = "Mme";
         }
         return $this->render('HrBundle:Hello:index.html.twig',
             array('name' => $name, 'sexe' => $sexe, 'qualification' => $qualification));

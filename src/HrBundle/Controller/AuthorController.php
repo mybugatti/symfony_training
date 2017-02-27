@@ -17,7 +17,7 @@ use HrBundle\Form\AuthorType;
 class AuthorController extends Controller
 {
     /**
-     * Lists all Author entities.
+     * Lists all Author entities
      *
      * @Route("/", name="user_index")
      * @Method("GET")
