@@ -12,7 +12,7 @@ use HrBundle\Form\BookType;
 /**
  * Book controller.
  *
- * @Route("/user")
+ * @Route("/book")
  */
 class BookController extends Controller
 {

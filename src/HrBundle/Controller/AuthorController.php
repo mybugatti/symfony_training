@@ -12,7 +12,7 @@ use HrBundle\Form\AuthorType;
 /**
  * Author controller.
  *
- * @Route("/user")
+ * @Route("/author")
  */
 class AuthorController extends Controller
 {

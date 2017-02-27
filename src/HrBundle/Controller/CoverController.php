@@ -12,7 +12,7 @@ use HrBundle\Form\CoverType;
 /**
  * Cover controller.
  *
- * @Route("/user")
+ * @Route("/cover")
  */
 class CoverController extends Controller
 {
